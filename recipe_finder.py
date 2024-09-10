@@ -5,6 +5,15 @@ from langchain_community.vectorstores import Chroma  # Updated Chroma import
 from langchain_huggingface import HuggingFaceEmbeddings  # Updated HuggingFaceEmbeddings import
 
 import streamlit as st
+##
+import sys
+import types
+
+# Create a mock nltk module to bypass any nltk calls
+sys.modules['nltk'] = types.ModuleType('nltk')
+sys.modules['nltk'].data = types.ModuleType('nltk.data')
+sys.modules['nltk'].data.find = lambda *args, **kwargs: None
+##
 
 # Step 1: Load and Preprocess the Recipe Data from CSV
 def load_and_preprocess_data(csv_file):
