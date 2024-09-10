@@ -18,14 +18,16 @@ This project allows users to search for recipes based on the ingredients they ha
    cd <your-repo-directory>
 
 2. Install dependencies: Make sure to have Python installed and run the following command to install the necessary packages:
-pip install -r requirements.txt
+
+## pip install -r requirements.txt
 
 3. Prepare the data:
 
 Ensure you have a CSV file containing the recipe data. In the script, the file is named IndianFood-cleaned.csv. Place your CSV file in the project directory.
 
 4. Run the Streamlit app
-streamlit run recipe_finder.py
+
+## streamlit run recipe_finder.py
 
 5. Using the app:
 
