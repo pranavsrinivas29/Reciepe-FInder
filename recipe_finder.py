@@ -8,16 +8,33 @@ import streamlit as st
 ##
 import nltk
 import os
+import zipfile
 
-# Use the /tmp directory to store nltk data
-nltk_data_dir = '/tmp/nltk_data'
-os.makedirs(nltk_data_dir, exist_ok=True)
+"""
+# Define a directory for downloading NLTK data (create it if it doesn't exist)
+nltk_data_dir = os.path.join(os.getcwd(), 'nltk_data')
+if not os.path.exists(nltk_data_dir):
+    os.makedirs(nltk_data_dir)
+
+# Download the stopwords corpus to the custom directory
+nltk.download('stopwords', download_dir=nltk_data_dir)
+"""
+
+
+# Define the path to the zip file and extraction directory
+zip_file_path = os.path.join(os.getcwd(), 'nltk_data.zip')
+nltk_data_dir = os.path.join(os.getcwd(), 'nltk_data')
+
+# Extract the zip file if the directory doesn't exist
+if not os.path.exists(nltk_data_dir):
+    with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+        zip_ref.extractall(nltk_data_dir)
+
+# Point NLTK to the extracted directory
 nltk.data.path.append(nltk_data_dir)
 
-# Download the stopwords to the /tmp directory
-nltk.download('stopwords', download_dir=nltk_data_dir)
+#
 
-##
 
 # Step 1: Load and Preprocess the Recipe Data from CSV
 def load_and_preprocess_data(csv_file):
