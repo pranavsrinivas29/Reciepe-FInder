@@ -1,5 +1,5 @@
 pandas
-llama-index
+llama-index==0.11.7
 langchain-community
 langchain-huggingface
 sentence-transformers

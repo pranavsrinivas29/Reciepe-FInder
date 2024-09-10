@@ -13,6 +13,7 @@ import types
 sys.modules['nltk'] = types.ModuleType('nltk')
 sys.modules['nltk'].data = types.ModuleType('nltk.data')
 sys.modules['nltk'].data.find = lambda *args, **kwargs: None
+sys.modules['nltk'].download = lambda *args, **kwargs: None
 ##
 
 # Step 1: Load and Preprocess the Recipe Data from CSV
