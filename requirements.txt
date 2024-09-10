@@ -1,0 +1,7 @@
+pandas
+llama-index
+langchain-community
+langchain-huggingface
+sentence-transformers
+streamlit
+chromadb
