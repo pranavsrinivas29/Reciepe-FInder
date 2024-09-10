@@ -6,14 +6,17 @@ from langchain_huggingface import HuggingFaceEmbeddings  # Updated HuggingFaceEm
 
 import streamlit as st
 ##
-import sys
-import types
+import nltk
+import os
 
-# Create a mock nltk module to bypass any nltk calls
-sys.modules['nltk'] = types.ModuleType('nltk')
-sys.modules['nltk'].data = types.ModuleType('nltk.data')
-sys.modules['nltk'].data.find = lambda *args, **kwargs: None
-sys.modules['nltk'].download = lambda *args, **kwargs: None
+# Use the /tmp directory to store nltk data
+nltk_data_dir = '/tmp/nltk_data'
+os.makedirs(nltk_data_dir, exist_ok=True)
+nltk.data.path.append(nltk_data_dir)
+
+# Download the stopwords to the /tmp directory
+nltk.download('stopwords', download_dir=nltk_data_dir)
+
 ##
 
 # Step 1: Load and Preprocess the Recipe Data from CSV
